@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t doduo1.umcn.nl/gabyvansoest/deep-covid-xr-rumc -f Dockerfile .
+docker build -t doduo1.umcn.nl/gabyvansoest/deep-covid-xr -f Dockerfile .

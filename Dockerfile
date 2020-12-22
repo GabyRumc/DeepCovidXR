@@ -2,7 +2,7 @@ FROM rwehbe/deepcovidxr:large
 
 SHELL ["/bin/bash", "-c"]
 
-VOLUME ['/input', '/output']
+VOLUME ['/output']
 
 ENTRYPOINT ["/bin/bash", "/home/deepcovidxr/deep_covid_xr_rumc/entrypoint.sh"]
 
@@ -14,6 +14,7 @@ RUN mkdir -p /home/deepcovidxr/deep_covid_xr_rumc
 RUN mkdir -p /home/deepcovidxr/deep_covid_xr_rumc_data
 
 COPY docker_data/covid_weights /home/deepcovidxr/deep_covid_xr_rumc_data/covid_weights/
+COPY docker_data/input_images /home/deepcovidxr/deep_covid_xr_rumc_data/input_images/
 COPY docker_data/trained_unet_model.hdf5 /home/deepcovidxr/deep_covid_xr_rumc/
 
 WORKDIR /home/deepcovidxr/deep_covid_xr_rumc
@@ -43,4 +44,3 @@ COPY crop_img.py \
 RUN chown -R deepcovidxr:deepcovidxr /home/deepcovidxr
 USER deepcovidxr
 RUN lsb_release -a && python --version
-
