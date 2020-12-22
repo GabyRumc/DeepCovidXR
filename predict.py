@@ -319,7 +319,12 @@ if __name__ == '__main__':
         print('Predictions complete')
 
         # Prompt user to continue
-        cont = input('Would you like to analyze another image/folder? (yes/no) ')
+        
+        # docker is non-interactive
+        # cont = input('Would you like to analyze another image/folder? (yes/no) ')
+        cont = 'n'
+        # docker is non-interactive
+
         if cont == 'yes' or cont == 'y':
             img_dir = input('Path to new image or folder of images? ')
         tf.keras.backend.clear_session()
