@@ -1,4 +1,7 @@
 __pycache__/
+.idea/
+docker_data
+*.sol
 *.tar
 *.7z
 *.zip
