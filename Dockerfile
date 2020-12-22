@@ -7,7 +7,7 @@ VOLUME ['/output']
 ENTRYPOINT ["/bin/bash", "/home/deepcovidxr/deep_covid_xr_rumc/entrypoint.sh"]
 
 RUN groupadd --system deepcovidxr && \
-    useradd --system --create-home --shell /bin/bash --gid deepcovidxr deepcovidxr && \
+    useradd --system --shell /bin/bash --gid deepcovidxr deepcovidxr && \
     (echo deepcovidxr ; echo deepcovidxr) | passwd deepcovidxr
 
 RUN mkdir -p /home/deepcovidxr/deep_covid_xr_rumc
