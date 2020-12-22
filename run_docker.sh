@@ -1,6 +1,10 @@
 #!/bin/bash -e
 
-[[ -z ${1} ]] && echo "please supply cmdline arg for full path to output dir"; exit 1
+if [[ -z ${1} ]]; then
+  echo "please supply cmdline arg for full path to output dir"
+  exit 1
+fi
+
 output_dir="${1}"
 
 docker_image="doduo1.umcn.nl/gabyvansoest/deep-covid-xr:latest"
@@ -18,4 +22,4 @@ else
     nvrun=""
 fi
 
-docker run -v "${output_dir}:/output" ${nvrun} "${docker_image}"
+docker run --rm -v "${output_dir}:/output" ${nvrun} "${docker_image}"
