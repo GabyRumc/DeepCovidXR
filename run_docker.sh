@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 if [[ -z ${1} ]]; then
   echo "please supply cmdline arg for full path to output dir"
